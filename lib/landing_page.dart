@@ -16,6 +16,13 @@ class _LandingState extends State<Landing> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: const BottomAppBar(
+          //bottom navigation bar on scaffold
+          color: Color(0xff2561c6),
+          shape: CircularNotchedRectangle(), //shape of notch
+        ),
+        floatingActionButton: _floatingActionButton(),
         backgroundColor: Colors.white,
         body: Container(
           padding: const EdgeInsets.all(20),
@@ -42,6 +49,26 @@ class _LandingState extends State<Landing> {
             ],
           ),
         ));
+  }
+
+  SizedBox _floatingActionButton() {
+    return SizedBox(
+      width: 70,
+      height: 70,
+      child: FloatingActionButton(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(200)),
+        backgroundColor: Color(0xff0a0f29),
+        onPressed: () {},
+        child: const Text(
+          'BMI',
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 20,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
   }
 
   Container ageGetter(BuildContext context) {
