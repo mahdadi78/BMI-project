@@ -35,43 +35,7 @@ class _LandingState extends State<Landing> {
                   children: [
                     weightGetter(context),
                     //-----------------------------------------------age getter
-                    Container(
-                      width: MediaQuery.of(context).size.width / 2.4,
-                      height: MediaQuery.of(context).size.width / 2.2,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          border: Border.all(color: borderColor)),
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 20),
-                        child: Column(
-                          children: [
-                            const Text(
-                              'Age',
-                              style: TextStyle(
-                                  fontSize: 20, color: Colors.black54),
-                            ),
-                            const SizedBox(height: 40),
-                            //getter
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                _addAgeButton(),
-                                Text(
-                                  age.toString(),
-                                  style: TextStyle(
-                                      fontSize: 40,
-                                      color: maleIsSelected
-                                          ? maleColor
-                                          : femaleColor,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                                _removeAgeButton(),
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    )
+                    ageGetter(context)
                   ],
                 ),
               )
@@ -80,12 +44,51 @@ class _LandingState extends State<Landing> {
         ));
   }
 
+  Container ageGetter(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width / 2.4,
+      height: MediaQuery.of(context).size.width / 2.2,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(color: borderColor)),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 20),
+        child: Column(
+          children: [
+            const Text(
+              'Age',
+              style: TextStyle(fontSize: 20, color: Colors.black54),
+            ),
+            const SizedBox(height: 40),
+            //getter
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                _addAgeButton(),
+                Text(
+                  age.toString(),
+                  style: TextStyle(
+                      fontSize: 40,
+                      color: maleIsSelected ? maleColor : femaleColor,
+                      fontWeight: FontWeight.w500),
+                ),
+                _removeAgeButton(),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
   IconButton _removeAgeButton() {
     return IconButton(
         onPressed: () {
-          setState(() {
-            age--;
-          });
+          if (age > 10) {
+            setState(() {
+              age--;
+            });
+          }
         },
         icon: const Icon(
           Icons.remove_circle_rounded,
@@ -97,9 +100,11 @@ class _LandingState extends State<Landing> {
   IconButton _addAgeButton() {
     return IconButton(
         onPressed: () {
-          setState(() {
-            age++;
-          });
+          if (age < 90) {
+            setState(() {
+              age++;
+            });
+          }
         },
         icon: const Icon(
           Icons.add_circle,

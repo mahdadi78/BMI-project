@@ -16,4 +16,4 @@ int myHeight = 170;
 int weight = 60;
 
 //age
-int age = 20;
+int age = 22;
