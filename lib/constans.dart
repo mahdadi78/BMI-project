@@ -11,3 +11,9 @@ bool maleIsSelected = false;
 
 //number picker height
 int myHeight = 170;
+
+//number picker weight
+int weight = 60;
+
+//age
+int age = 20;
