@@ -2,6 +2,7 @@ import 'package:bmi_flutter_project/female_button.dart';
 import 'package:bmi_flutter_project/male_button.dart';
 import 'package:flutter/material.dart';
 import 'constans.dart';
+import 'package:numberpicker/numberpicker.dart';
 
 class Landing extends StatefulWidget {
   const Landing({super.key});
@@ -11,8 +12,6 @@ class Landing extends StatefulWidget {
 }
 
 class _LandingState extends State<Landing> {
-  var _value = 160.0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,13 +25,13 @@ class _LandingState extends State<Landing> {
             children: [
               _title(),
               _sexualButtons(),
-              _sliderBox(context),
+              _numberPickerBox(context),
             ],
           ),
         ));
   }
 
-  Widget _sliderBox(BuildContext context) {
+  Widget _numberPickerBox(BuildContext context) {
     return Container(
       width: double.maxFinite,
       height: 200,
@@ -48,57 +47,71 @@ class _LandingState extends State<Landing> {
                 'Height(in cm)',
                 style: TextStyle(color: Colors.black54),
               ),
-              Text(
-                '$_value cm',
-                style: const TextStyle(
-                    fontWeight: FontWeight.w900,
-                    color: Colors.black26,
-                    fontSize: 30),
-              ),
-              //slider
-              SliderTheme(
-                data: SliderTheme.of(context).copyWith(
-                  activeTrackColor: maleIsSelected
-                      ? maleColor.withOpacity(.9)
-                      : femaleColor.withOpacity(.9),
-                  inactiveTrackColor: maleIsSelected
-                      ? maleColor.withOpacity(.2)
-                      : femaleColor.withOpacity(.2),
-                  trackShape: const RoundedRectSliderTrackShape(),
-                  trackHeight: 30.0,
-                  thumbShape:
-                      const RoundSliderThumbShape(enabledThumbRadius: 0.0),
-                  thumbColor: femaleColor,
-                  overlayColor: Colors.transparent,
-                  overlayShape:
-                      const RoundSliderOverlayShape(overlayRadius: 28.0),
-                  tickMarkShape: const RoundSliderTickMarkShape(),
-                  activeTickMarkColor: maleIsSelected ? maleColor : femaleColor,
-                  inactiveTickMarkColor: maleIsSelected
-                      ? maleColor.withOpacity(.2)
-                      : femaleColor.withOpacity(.2),
-                  valueIndicatorShape: const PaddleSliderValueIndicatorShape(),
-                  valueIndicatorColor: maleIsSelected ? maleColor : femaleColor,
-                  valueIndicatorTextStyle: const TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-                child: Slider(
-                  value: _value,
-                  min: 100,
-                  max: 220,
-                  divisions: 120,
-                  label: '$_value cm',
-                  onChanged: (value) {
-                    setState(
-                      () {
-                        _value = value;
-                      },
-                    );
-                  },
-                ),
-              ),
+
+              //number picker
+              numberPicker(),
+              linePaint()
             ]),
+      ),
+    );
+  }
+
+  Container linePaint() {
+    return Container(
+      margin: EdgeInsets.only(left: 10, right: 10, bottom: 30),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          shortestLine(),
+          shortestLine(),
+          shortestLine(),
+          shortestLine(),
+          shortestLine(),
+          shortestLine(),
+          Container(
+            width: 2,
+            height: 50,
+            decoration: BoxDecoration(
+              color: Colors.black,
+            ),
+          ),
+          shortestLine(),
+          shortestLine(),
+          shortestLine(),
+          shortestLine(),
+          shortestLine(),
+          shortestLine(),
+        ],
+      ),
+    );
+  }
+
+  Container shortestLine() {
+    return Container(
+      width: 1,
+      height: 40,
+      decoration: BoxDecoration(
+        color: Colors.black54,
+      ),
+    );
+  }
+
+  Widget numberPicker() {
+    return Expanded(
+      child: NumberPicker(
+        itemCount: 3,
+        selectedTextStyle: TextStyle(
+            color: maleIsSelected ? maleColor : femaleColor,
+            fontSize: 25,
+            fontWeight: FontWeight.w700),
+        axis: Axis.horizontal,
+        value: myHeight,
+        minValue: 100,
+        maxValue: 220,
+        step: 1,
+        haptics: true,
+        onChanged: (value) => setState(() => myHeight = value),
       ),
     );
   }

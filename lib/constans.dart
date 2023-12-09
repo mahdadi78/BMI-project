@@ -7,3 +7,6 @@ double unActiveOpacity = 0.5;
 
 //if it changes The colors for men and women in UI will change
 bool maleIsSelected = false;
+
+//number picker height
+int myHeight = 170;
