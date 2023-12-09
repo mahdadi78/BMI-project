@@ -1,6 +1,7 @@
 import 'package:bmi_flutter_project/female_button.dart';
 import 'package:bmi_flutter_project/male_button.dart';
 import 'package:flutter/material.dart';
+import 'constans.dart';
 
 class Landing extends StatefulWidget {
   const Landing({super.key});
@@ -8,10 +9,6 @@ class Landing extends StatefulWidget {
   @override
   State<Landing> createState() => _LandingState();
 }
-
-Color femaleColor = Colors.pink;
-Color maleColor = Colors.orange;
-bool maleIsSelected = true;
 
 class _LandingState extends State<Landing> {
   var _value = 160.0;
@@ -107,11 +104,30 @@ class _LandingState extends State<Landing> {
   }
 
   Padding _sexualButtons() {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.symmetric(vertical: 40),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [MaleButton(), FemaleButton()],
+        children: [
+          InkWell(
+              highlightColor: maleColor.withOpacity(.2),
+              hoverColor: maleColor.withOpacity(.1),
+              onTap: () {
+                setState(() {
+                  maleIsSelected = true;
+                });
+              },
+              child: MaleButton()),
+          InkWell(
+              highlightColor: femaleColor.withOpacity(.2),
+              hoverColor: femaleColor.withOpacity(.1),
+              onTap: () {
+                setState(() {
+                  maleIsSelected = false;
+                });
+              },
+              child: FemaleButton()),
+        ],
       ),
     );
   }
