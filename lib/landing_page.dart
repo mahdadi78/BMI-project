@@ -1,3 +1,4 @@
+import 'package:bmi_flutter_project/bottom_sheet.dart';
 import 'package:bmi_flutter_project/female_button.dart';
 import 'package:bmi_flutter_project/male_button.dart';
 import 'package:bmi_flutter_project/const_paint.dart';
@@ -57,8 +58,18 @@ class _LandingState extends State<Landing> {
       height: 70,
       child: FloatingActionButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(200)),
-        backgroundColor: Color(0xff0a0f29),
-        onPressed: () {},
+        backgroundColor: const Color(0xff0a0f29),
+        onPressed: () {
+          showModalBottomSheet(
+            elevation: 0,
+            clipBehavior: Clip.none,
+            backgroundColor: Colors.transparent,
+            context: context,
+            builder: (context) {
+              return const BottomSheetmy();
+            },
+          );
+        },
         child: const Text(
           'BMI',
           style: TextStyle(
