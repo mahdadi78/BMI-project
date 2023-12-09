@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   rulers: ^1.0.7
   numberpicker: ^2.1.2
+  bottom_bar_with_sheet: ^2.4.0
 
 dev_dependencies:
   flutter_test:
