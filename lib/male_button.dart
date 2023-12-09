@@ -21,9 +21,7 @@ class MaleButton extends StatelessWidget {
                 image: AssetImage('assets/icons/male.png')),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-                color: maleIsSelected
-                    ? Colors.grey.shade800
-                    : Colors.grey.shade300)),
+                color: maleIsSelected ? Colors.grey.shade800 : borderColor)),
         child: const Padding(
           padding: EdgeInsets.only(bottom: 8),
           child: Text(

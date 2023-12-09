@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 Color femaleColor = Colors.pink;
 Color maleColor = Colors.orange;
+Color borderColor = Colors.black38;
 double activeOpacity = 1.0;
 double unActiveOpacity = 0.5;
 
