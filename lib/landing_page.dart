@@ -34,7 +34,10 @@ class _LandingState extends State<Landing> {
                 padding: EdgeInsets.only(top: 40),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [WeightGetter(), AgeGetter()],
+                  children: [
+                    WeightGetter(),
+                    AgeGetter(),
+                  ],
                 ),
               )
             ],
