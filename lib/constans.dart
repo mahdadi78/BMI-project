@@ -13,7 +13,14 @@ bool maleIsSelected = false;
 int myHeight = 170;
 
 //number picker weight
-int weight = 60;
+int myWeight = 60;
 
 //age
 int age = 22;
+
+//bmi
+String myBMI(int h, int w, int a) {
+  double metrHeight = h / 100;
+  double result = (w / (metrHeight * metrHeight));
+  return result.toStringAsFixed(1);
+}

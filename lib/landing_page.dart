@@ -16,6 +16,8 @@ class Landing extends StatefulWidget {
 class _LandingState extends State<Landing> {
   @override
   Widget build(BuildContext context) {
+    var widthSize = MediaQuery.of(context).size.width;
+
     return Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: const BottomAppBar(
@@ -32,7 +34,7 @@ class _LandingState extends State<Landing> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _title(),
+              _title(widthSize),
               _sexualButtons(),
               numberPickerBox(context),
               //kg and age   selector
@@ -185,14 +187,14 @@ class _LandingState extends State<Landing> {
                         fontSize: 20,
                         fontWeight: FontWeight.w700),
                     axis: Axis.horizontal,
-                    value: weight,
+                    value: myWeight,
                     minValue: 20,
                     maxValue: 200,
                     step: 1,
                     haptics: false,
                     onChanged: (value) {
                       setState(() {
-                        weight = value;
+                        myWeight = value;
                       });
                     },
                   ),
@@ -244,7 +246,7 @@ class _LandingState extends State<Landing> {
     );
   }
 
-  Text _title() {
+  Text _title(double width) {
     return const Text(
       'BMI Calculator',
       style: TextStyle(
@@ -281,7 +283,7 @@ class _LandingState extends State<Landing> {
     return Expanded(
       child: NumberPicker(
         itemCount: 7,
-        itemWidth: 58,
+        itemWidth: 49,
         selectedTextStyle: TextStyle(
             color: maleIsSelected ? maleColor : femaleColor,
             fontSize: 25,
