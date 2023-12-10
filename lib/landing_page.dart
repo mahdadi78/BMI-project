@@ -63,6 +63,7 @@ class _LandingState extends State<Landing> {
         backgroundColor: const Color(0xff0a0f29),
         onPressed: () {
           showModalBottomSheet(
+            barrierColor: Colors.white.withOpacity(0),
             elevation: 0,
             clipBehavior: Clip.none,
             backgroundColor: Colors.transparent,

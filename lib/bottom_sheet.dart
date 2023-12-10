@@ -14,7 +14,7 @@ class _BottomSheetmyState extends State<BottomSheetmy> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 15),
+      padding: const EdgeInsets.symmetric(vertical: 15),
       height: 500,
       width: double.maxFinite,
       decoration: const BoxDecoration(
