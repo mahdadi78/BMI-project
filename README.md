@@ -2,7 +2,7 @@
 
 A new Flutter project.
 
-## Getting Started
+## Project images
 
 
 ![bmi](https://github.com/mahdadi78/BMI-project/assets/78992400/1fa40950-df7a-4949-9ef1-0dc29237b659)
