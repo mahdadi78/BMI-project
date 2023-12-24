@@ -1,10 +1,12 @@
-# bmi_flutter_project
+# BMI UI
 
 A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+
+![bmi](https://github.com/mahdadi78/BMI-project/assets/78992400/1fa40950-df7a-4949-9ef1-0dc29237b659)
+![bmi2](https://github.com/mahdadi78/BMI-project/assets/78992400/0785d269-353f-47b2-a9bb-342c511870ce)
 
 A few resources to get you started if this is your first Flutter project:
 
