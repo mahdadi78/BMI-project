@@ -1,9 +1,9 @@
-import 'package:bmi_flutter_project/bottom_sheet.dart';
-import 'package:bmi_flutter_project/female_button.dart';
-import 'package:bmi_flutter_project/male_button.dart';
-import 'package:bmi_flutter_project/const_paint.dart';
+import 'package:bmi_flutter_project/widgets/bottom_sheet.dart';
+import 'package:bmi_flutter_project/widgets/female_button.dart';
+import 'package:bmi_flutter_project/widgets/male_button.dart';
+import 'package:bmi_flutter_project/widgets/const_paint.dart';
 import 'package:flutter/material.dart';
-import 'constans.dart';
+import '../constans.dart';
 import 'package:numberpicker/numberpicker.dart';
 
 class Landing extends StatefulWidget {
